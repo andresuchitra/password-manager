@@ -2,15 +2,19 @@ import React from 'react'
 import { Container, Row, Col} from 'react-bootstrap'
 import db from '../api/firestore.js'
 import FormPassword from './FormPassword'
+import swal from 'sweetalert2'
 
 function AddPassword(props) {
     function handleSubmit(data) {
         let docRef = db.collection("passwords").doc()
-        
+        data.createdat = new Date();
+        data.updatedat = data.createdat
+
         docRef.set(data)
         .then(function(docRef) {
             console.log('added...');
             props.history.push("/")
+            swal.fire('Password Added', '', 'success')
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);

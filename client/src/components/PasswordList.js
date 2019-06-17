@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import {Table, Button} from 'react-bootstrap'
-import PasswordItem from './PasswordItem'
 import db from '../api/firestore'
 import Moment from 'moment'
+import {Link} from 'react-router-dom'
+
+
+function handleDelete(e, id,list, setList) {
+    db.collection('passwords').doc(id).delete();
+    setList(list.filter(x => x.id !== id))
+}
 
 function useFetchPassword() {
     const [list, setList] = useState([]);
@@ -20,8 +26,6 @@ function useFetchPassword() {
                 let item = doc.data();
                 item.createdat = doc.data().createdat.toDate();
                 item.updatedat = doc.data().updatedat.toDate();
-
-                console.log(item);
                 newList.push({id: doc.id,...item})
             });
 
@@ -36,11 +40,11 @@ function useFetchPassword() {
 
     }, [list.length]);
 
-    return [list, loading, error]
+    return [list, loading, error, setList]
 }
 
-function PasswordList() {
-    const [list, loading, error] = useFetchPassword();
+function PasswordList(props) {
+    const [list, loading, error, setList] = useFetchPassword();
 
     return (
         <Table striped bordered hover variant="dark">
@@ -57,15 +61,19 @@ function PasswordList() {
             </thead>
             <tbody>
                 {list.map((pwd, index) => 
-                    <tr>
+                    <tr key={index}>
                         <td>{(index + 1)}</td>
                         <td>{pwd.url}</td>
                         <td>{pwd.username}</td>
                         <td>{pwd.password}</td>
                         <td>{Moment(pwd.createdat.toString()).format('LLLL')}</td>
                         <td>{Moment(pwd.updatedat.toString()).format('LLLL')}</td>
-                        <td><Button variant="info">Update</Button></td>
-                        <td><Button variant="danger">Delete</Button></td>
+                        <td>
+                            <Link to={'/update/' + pwd.id}><Button variant="info">Update</Button></Link>
+                        </td>
+                        <td>
+                            <Button variant="danger" onClick={ (e) => handleDelete(this, pwd.id, list, setList)  }>Delete</Button>
+                        </td>
                     </tr>
                 )}
             </tbody>

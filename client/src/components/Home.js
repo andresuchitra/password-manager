@@ -5,12 +5,12 @@ import PasswordList from './PasswordList'
 function Home() {
     return (
         <Container className="py-3">
-            <Row className="justify-content-lg-center">
+            <Row className="justify-content-lg-center mt-3">
                 <Col>
                     <h3>React Password Manager</h3>
-                    <Row className="mt-5">
+                    <div className="mt-5">
                         <PasswordList></PasswordList>
-                    </Row>
+                    </div>
                 </Col>
             </Row>
         </Container>

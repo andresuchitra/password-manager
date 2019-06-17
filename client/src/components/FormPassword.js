@@ -1,16 +1,26 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Form, Row, Col, Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-function FormPassword(props) {
+const FormPassword = React.memo(function FormPassword (props) {
     const [url, setURL] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    let initPwd = props.password ? props.password : {};
+
+    //check useEffect
+    useEffect(() => {
+        if(initPwd.id) {
+            console.log('init data');
+            setURL(props.password.url)
+            setUsername(props.password.username)
+            setPassword(props.password.password)
+        }
+    }, [initPwd.id]);
 
     function handleSubmit(e) {
         e.preventDefault();
-        let createdat = new Date()
-        let updatedat = createdat
-        props.onSubmit({url, username, password, createdat, updatedat})
+        props.onSubmit({url, username, password})
     }
 
     return (
@@ -47,10 +57,11 @@ function FormPassword(props) {
                     <Button variant="primary" type="submit" style={{ minWidth: '100px'}} onClick={handleSubmit}>
                         Save
                     </Button>
+                    <Link to={'/'} className="ml-2"><Button variant="danger">Cancel</Button></Link>
                 </Col>
             </Form.Group>
         </Form>
 );
-}
+});
 
-export default FormPassword
+export default React.memo(FormPassword)
