@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {Table, Button} from 'react-bootstrap'
-import db from '../api/firestore'
+import db from '../../api/firestore'
 import Moment from 'moment'
 import {Link} from 'react-router-dom'
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 
 function handleDelete(e, id,list, setList) {

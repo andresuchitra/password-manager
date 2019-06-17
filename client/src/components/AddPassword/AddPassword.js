@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col} from 'react-bootstrap'
-import db from '../api/firestore.js'
-import FormPassword from './FormPassword'
+import db from '../../api/firestore.js'
+import FormPassword from '../FormPassword/FormPassword'
 import swal from 'sweetalert2'
 
 function AddPassword(props) {

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { Container, Row, Col, Card, Button} from 'react-bootstrap'
-import db from '../api/firestore'
+import db from '../../api/firestore'
 import Swal from 'sweetalert2';
 import {Link} from 'react-router-dom'
-import LoadingSpinner from './LoadingSpinner'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 function SearchResult(props) {
     const [list, setList] = useState([]);

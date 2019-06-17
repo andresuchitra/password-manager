@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Form, Row, Col} from 'react-bootstrap'
-import PasswordList from './PasswordList'
+import PasswordList from '../PasswordList/PasswordList'
 
 function Home() {
     return (

@@ -1,11 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
-import Home from './components/Home'
-import AddPassword from './components/AddPassword'
-import Header from './components/Header'
-import UpdatePassword from './components/UpdatePassword';
-import SearchResult from './components/SearchResult';
+import Home from './components/Home/Home'
+import AddPassword from './components/AddPassword/AddPassword'
+import Header from './components/Header/Header'
+import UpdatePassword from './components/UpdatePassword/UpdatePassword';
+import SearchResult from './components/SearchResult/SearchResult';
 
 function App() {
   return (

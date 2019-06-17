@@ -1,7 +1,7 @@
 import React from 'react'
 import {Navbar, Nav, Button} from 'react-bootstrap'
 import {  Link, NavLink} from 'react-router-dom'
-import SearchForm from './SearchForm'
+import SearchForm from '../SearchForm/SearchForm'
 
 function Header() {
     return (

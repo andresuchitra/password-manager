@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { Container, Row, Col} from 'react-bootstrap'
-import db from '../api/firestore.js'
-import FormPassword from './FormPassword'
+import db from '../../api/firestore.js'
+import FormPassword from '../FormPassword/FormPassword'
 import swal from 'sweetalert2'
-import LoadingSpinner from './LoadingSpinner.js';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 
 function useFetchPassword(id) {
     const [password, setPassword] = useState({});
