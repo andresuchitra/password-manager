@@ -5,12 +5,12 @@ import SearchForm from '../SearchForm/SearchForm'
 
 function Header() {
     return (
-        <Navbar bg="dark" expand="lg" variant="dark">
-            <Navbar.Brand as={Link} to="/" exact>PASSWORD MANAGER</Navbar.Brand>
+        <Navbar data-testid="header-root" bg="dark" expand="lg" variant="dark">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Brand as={Link} to="/">PASSWORD MANAGER</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link as={NavLink} href="/" to="/" exact>Home</Nav.Link>
+                    <Nav.Link as={NavLink} href="/" to="/" exact={true}>Home</Nav.Link>
                     <Nav.Link as={NavLink} href="/add" to="/add">Add Password</Nav.Link>
                 </Nav>
                 <SearchForm></SearchForm>

@@ -14,7 +14,7 @@ function handleDelete(e, id,list, setList) {
 function useFetchPassword() {
     const [list, setList] = useState([]);
     const [error, setError] = useState({})
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true)
@@ -54,7 +54,7 @@ function PasswordList(props) {
 
         return (
             <Table striped bordered hover variant="dark">
-                <thead>
+                <thead data-testid="listPwd">
                     <tr>
                         <th>No.</th>
                         <th>URL</th>
@@ -88,4 +88,4 @@ function PasswordList(props) {
     }
 }
 
-export default PasswordList
+export default PasswordList;

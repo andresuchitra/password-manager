@@ -8,7 +8,7 @@ function LoadingSpinner() {
             <div className="d-flex">
                 {
                     [1,2,3].map(x => 
-                        <Spinner animation="grow" variant="primary" size="lg" style={{ height: '60px', width: '60px'}} />
+                        <Spinner key={x} animation="grow" variant="primary" size="lg" style={{ height: '60px', width: '60px'}} />
                     )
                 }
             </div>

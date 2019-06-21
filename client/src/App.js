@@ -10,8 +10,9 @@ import SearchResult from './components/SearchResult/SearchResult';
 function App() {
   return (
       <Router>
-          <Header></Header>
-          <Switch>
+            <Header></Header>
+            
+            <Switch>
             <Route path="/search/:key" component={ SearchResult }/>
             <Route path="/add" component={ AddPassword }/>
             <Route path="/update/:id" component={ UpdatePassword }/>
@@ -19,7 +20,6 @@ function App() {
               <Home />
               )} />
           </Switch>
-          
       </Router>
   );
 }
