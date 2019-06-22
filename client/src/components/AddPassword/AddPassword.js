@@ -32,7 +32,7 @@ function AddPassword(props) {
                     </Row>
                     <Row>
                         <Col>
-                            <FormPassword onSubmit={handleSubmit}></FormPassword>
+                            <FormPassword data-testid="form-control-password" onSubmit={handleSubmit}></FormPassword>
                         </Col>
                     </Row>
                 </Col>

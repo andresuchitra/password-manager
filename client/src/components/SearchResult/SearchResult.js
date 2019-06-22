@@ -9,8 +9,13 @@ function SearchResult(props) {
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    let searchKey = props.match.params.key;
-
+    let searchKey
+    if(props.match) {
+        searchKey = props.match.params.key;
+    }
+    else {
+        searchKey = ''
+    }
     useEffect(() => {
         setLoading(true);
         db.collection("passwords")

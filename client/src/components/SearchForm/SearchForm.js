@@ -18,7 +18,7 @@ const SearchForm = function SearchForm(props) {
     return (
         <Form inline className="mr-3" onSubmit={(e) => handleSubmit(e, searchKey)}>
             <FormControl type="text" placeholder="Search anything..." className="mr-sm-2" value={searchKey} onChange={ (e) => setSearchKey(e.target.value)}/>
-            <Button variant="outline-success" type="submit">Search</Button>
+            <Button variant="outline-success" data-testid="search-btn" type="submit">Search</Button>
         </Form>
     );
 }

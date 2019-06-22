@@ -48,16 +48,16 @@ const FormPassword = React.memo(function FormPassword (props) {
                     Password
                 </Form.Label>
                 <Col sm="10" lg="10" md="10">
-                    <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}  />
+                    <Form.Control data-testid="form-control-password" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}  />
                 </Col>
             </Form.Group>
             <Form.Group as={Row} >
                 <Form.Label column></Form.Label>
                 <Col sm="10" lg="10" md="10">
-                    <Button variant="primary" type="submit" style={{ minWidth: '100px'}} onClick={handleSubmit}>
+                    <Button data-testid="form-save-btn" variant="primary" type="submit" style={{ minWidth: '100px'}} onClick={handleSubmit}>
                         Save
                     </Button>
-                    <Link to={'/'} className="ml-2"><Button variant="danger">Cancel</Button></Link>
+                    <Link to={'/'} className="ml-2"><Button data-testid="form-cancel-btn" variant="danger">Cancel</Button></Link>
                 </Col>
             </Form.Group>
         </Form>
