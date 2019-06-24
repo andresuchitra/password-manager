@@ -10,15 +10,14 @@ afterEach(cleanup);
 describe("Loading Spinner", () => {
     
     it ("Testing Loading Home Page", () => {
-        /* const { getByTestId } = render(<Router><Home/></Router>);
-        expect(getByTestId("spinner")).toBeInDocument();
-         */
-        expect(1).toBe(1)
+        const { getByTestId } = render(<Router><Home/></Router>);
+        expect(getByTestId("spinner")).toBeInTheDocument();
+        
     })
 
-    /* it("Testing Loading Update Password", () => {
-        const { getByTestId } = render(<Router><UpdatePassword/></Router>);
-  
-        expect(getByTestId("spinner")).toBeInDocument();
-    }) */
+    it ("Testing Loading UpdatePassword Page", () => {
+        const { getByTestId } = render(<Router><UpdatePassword match={{params: {id: '0IceqZZ8DiVLayvgWgLr'}}}/></Router>);
+        expect(getByTestId("spinner")).toBeInTheDocument();
+        
+    })
 })

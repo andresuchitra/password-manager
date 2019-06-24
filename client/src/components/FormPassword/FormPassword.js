@@ -30,7 +30,7 @@ const FormPassword = React.memo(function FormPassword (props) {
                     URL
                 </Form.Label>
                 <Col sm="10" lg="10" md="10">
-                    <Form.Control placeholder="Example 'http://example.com'" value={url} onChange={e => setURL(e.target.value)}/>
+                    <Form.Control data-testid="form-control-url" placeholder="Example 'http://example.com'" value={url} onChange={e => setURL(e.target.value)}/>
                 </Col>
             </Form.Group>
 
@@ -39,7 +39,7 @@ const FormPassword = React.memo(function FormPassword (props) {
                     Username
                 </Form.Label>
                 <Col sm="10" lg="10" md="10">
-                    <Form.Control placeholder="Any text or any email format" value={username} onChange={e => setUsername(e.target.value)}  />
+                    <Form.Control data-testid="form-control-username" placeholder="Any text or any email format" value={username} onChange={e => setUsername(e.target.value)}  />
                 </Col>
             </Form.Group>
 
