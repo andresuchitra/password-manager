@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { Form, Row, Col, Button} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
-const FormPassword = React.memo(function FormPassword (props) {
+const FormPassword = function FormPassword (props) {
     const [url, setURL] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -57,11 +57,11 @@ const FormPassword = React.memo(function FormPassword (props) {
                     <Button data-testid="form-save-btn" variant="primary" type="submit" style={{ minWidth: '100px'}} onClick={handleSubmit}>
                         Save
                     </Button>
-                    <Link to={'/'} className="ml-2"><Button data-testid="form-cancel-btn" variant="danger">Cancel</Button></Link>
+                    <Link to={'/'} className="ml-2 btn btn-danger" data-testid="form-cancel-link">Cancel</Link>
                 </Col>
             </Form.Group>
         </Form>
 );
-});
+};
 
-export default React.memo(FormPassword)
+export default withRouter(FormPassword);

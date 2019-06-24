@@ -9,7 +9,7 @@ import SearchResult from './components/SearchResult/SearchResult';
 
 function App() {
   return (
-      <Router>
+      <>
             <Header></Header>
             
             <Switch>
@@ -20,7 +20,7 @@ function App() {
               <Home />
               )} />
           </Switch>
-      </Router>
+      </>
   );
 }
 
