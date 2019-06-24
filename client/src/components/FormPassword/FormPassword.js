@@ -8,7 +8,7 @@ const FormPassword = function FormPassword (props) {
     const [password, setPassword] = useState('')
     let initPwd = props.password ? props.password : {};
 
-    //check useEffect
+    //check useEffect 
     useEffect(() => {
         if(initPwd.id) {
             console.log('init data');
@@ -20,7 +20,18 @@ const FormPassword = function FormPassword (props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.onSubmit({url, username, password})
+        let newPwd = {}
+        if(url) {
+            newPwd.url = url
+        }
+        if(username) {
+            newPwd.username = username
+        }
+        if(password) {
+            newPwd.password = password
+        }
+
+        props.onSubmit(newPwd)
     }
 
     return (

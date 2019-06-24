@@ -5,10 +5,9 @@ import Moment from 'moment'
 import {Link} from 'react-router-dom'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
-
 function handleDelete(e, id,list, setList) {
     db.collection('passwords').doc(id).delete();
-    setList(list.filter(x => x.id !== id))
+    setList(list.filter(x => x.id !== id))                                                      
 }
 
 function useFetchPassword() {
@@ -78,7 +77,7 @@ function PasswordList(props) {
                                 <Link to={'/update/' + pwd.id}><Button variant="info">Update</Button></Link>
                             </td>
                             <td>
-                                <Button variant="danger" onClick={ (e) => handleDelete(this, pwd.id, list, setList)  }>Delete</Button>
+                                <Button variant="danger" data-testid={`del-btn-${pwd.username}`} onClick={ (e) => handleDelete(this, pwd.id, list, setList)  }>Delete</Button>
                             </td>
                         </tr>
                     )}

@@ -15,7 +15,7 @@ describe("Form Password Test", () => {
         expect(getByText('Password')).toBeInTheDocument();
 
         expect(getByTestId('form-save-btn')).toBeInTheDocument();
-        expect(getByTestId('form-cancel-btn')).toBeInTheDocument();
+        expect(getByTestId('form-cancel-link')).toBeInTheDocument();
 
     })
 })

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col} from 'react-bootstrap'
 import PasswordList from '../PasswordList/PasswordList'
 
-function Home() {
+function Home() { 
     return (
         <Container className="py-3">
             <Row className="justify-content-lg-center mt-3">

@@ -11,7 +11,6 @@ function App() {
   return (
       <>
             <Header></Header>
-            
             <Switch>
             <Route path="/search/:key" component={ SearchResult }/>
             <Route path="/add" component={ AddPassword }/>

@@ -5,20 +5,21 @@ import FormPassword from '../FormPassword/FormPassword'
 import swal from 'sweetalert2'
 
 function AddPassword(props) {
+    
     function handleSubmit(data) {
-        let docRef = db.collection("passwords").doc()
-        data.createdat = new Date();
-        data.updatedat = data.createdat
-
-        docRef.set(data)
-        .then(function(docRef) {
-            console.log('added...');
-            props.history.push("/")
-            swal.fire('Password Added', '', 'success')
-        })
-        .catch(function(error) {
-            console.error("Error adding document: ", error);
-        });
+        if(Object.keys(data).length > 0) {
+            let docRef = db.collection("passwords").doc()
+            data.createdat = new Date();
+            data.updatedat = data.createdat
+            docRef.set(data)
+            .then(function(docRef) {
+                props.history.push("/")
+                swal.fire('Password Added', '', 'success')
+            })
+            .catch(function(error) {
+                swal.fire('Error Adding Document', 'Please check your data', 'error')
+            });
+        }
     }
 
     return (

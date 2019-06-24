@@ -39,6 +39,46 @@ describe("Test Add Password", () => {
         expect(cancelLink).toBeInTheDocument();
         fireEvent.click(getByText('Cancel'));
         expect(getByText('React Password Manager')).toBeInTheDocument();
+        
+    })
+    
+    it('Adding new password', async () => {
+        const { getByTestId, getAllByText } = render(<MemoryRouter initialEntries={['/add']}><App /></MemoryRouter>);
+        let newData = {
+            url: 'http://testdata.io',
+            username: 'user1',
+            password: 'PaSS123!'
+        }
 
+        const submitButton = getByTestId('form-save-btn');
+        const urlInput = getByTestId('form-control-url');
+        const usernameInput = getByTestId('form-control-username');
+        const passwordInput = getByTestId('form-control-password');
+
+        fireEvent.change(urlInput, { target: { value: newData.url } })
+        fireEvent.change(usernameInput, { target: { value: newData.username } })
+        fireEvent.change(passwordInput, { target: { value: newData.password } })
+
+        fireEvent.click(submitButton);
+
+        await waitForElement(() => {
+            return getAllByText(newData.url)
+        })
+        
+        expect(getAllByText(newData.url)[0]).toBeInTheDocument();
+    })
+
+    it('Adding invalid new password data', async () => {
+        const { getByTestId, getByText } = render(<MemoryRouter initialEntries={['/add']}><App /></MemoryRouter>);
+        let newData = null;
+
+        const submitButton = getByTestId('form-save-btn');
+        fireEvent.click(submitButton);
+
+        await waitForElement(() => {
+            return getByText("Error Adding Document")
+        })
+        
+        expect(getByText("Error Adding Document")).toBeInTheDocument();
     })
 })

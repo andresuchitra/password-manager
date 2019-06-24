@@ -8,6 +8,7 @@ const SearchForm = function SearchForm(props) {
 
     function handleSubmit(e, key) {
         e.preventDefault();
+        
         props.history.push(`/search/${key}`)
     }
 
@@ -16,7 +17,7 @@ const SearchForm = function SearchForm(props) {
     }, [key])
 
     return (
-        <Form inline className="mr-3" onSubmit={(e) => handleSubmit(e, searchKey)}>
+        <Form data-testid="search-form" inline className="mr-3" onSubmit={(e) => handleSubmit(e, searchKey)}>
             <FormControl type="text" placeholder="Search anything..." className="mr-sm-2" value={searchKey} onChange={ (e) => setSearchKey(e.target.value)}/>
             <Button variant="outline-success" data-testid="search-btn" type="submit">Search</Button>
         </Form>

@@ -3,7 +3,7 @@ import {Navbar, Nav, Button, NavItem} from 'react-bootstrap'
 import {  Link, NavLink} from 'react-router-dom'
 import SearchForm from '../SearchForm/SearchForm'
 
-function Header() {
+function Header(){
     return (
         <Navbar data-testid="header-root" bg="dark" expand="lg" variant="dark">
             <Navbar.Brand as={Link} to="/">PASSWORD MANAGER</Navbar.Brand>

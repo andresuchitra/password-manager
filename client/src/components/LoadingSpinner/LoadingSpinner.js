@@ -2,7 +2,6 @@ import React from 'react'
 import {Spinner} from 'react-bootstrap'
 
 function LoadingSpinner() {
-
     return (
         <div className="d-flex w-100 justify-content-center" data-testid="spinner">
             <div className="d-flex">

@@ -16,6 +16,7 @@ function SearchResult(props) {
     else {
         searchKey = ''
     }
+    
     useEffect(() => {
         setLoading(true);
         db.collection("passwords")

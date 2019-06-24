@@ -14,7 +14,6 @@ function useFetchPassword(id) {
         setLoading(true);
 
         let docRef = db.collection("passwords").doc(id);
-
         docRef.get()
         .then(function(updateDoc) {
             let data = updateDoc.data();
@@ -53,6 +52,7 @@ function UpdatePassword(props) {
             if(updateDoc.exists) {
                 data.updatedat = new Date();
                 docRef.update(data);
+                console.log('updated Data =>> ',data);
                 swal.fire('Document updated','','success')
                 props.history.push('/')
             }

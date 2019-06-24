@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, getByTestId } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import "jest-dom/extend-expect";
 import SearchForm from './SearchForm'
 import { BrowserRouter as Router } from 'react-router-dom';
