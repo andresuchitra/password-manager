@@ -5,7 +5,6 @@ import FormPassword from '../FormPassword/FormPassword'
 import swal from 'sweetalert2'
 
 function AddPassword(props) {
-    
     function handleSubmit(data) {
         if(Object.keys(data).length > 0) {
             let docRef = db.collection("passwords").doc()
