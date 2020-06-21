@@ -24,14 +24,14 @@ function useFetchPassword(id) {
                 swal.fire('Not found', 'No such document!', 'error')
             }
         })
-        .catch(function(error) {
-            console.log(error);
+        .catch(function(err) {
+            setError(err)
             swal.fire('Not found', JSON.stringify(error), 'error')
         })
         .finally(function() {
             setLoading(false);
         })
-    }, [id])
+    }, [id, error])
 
     return [
         password,
@@ -42,7 +42,7 @@ function useFetchPassword(id) {
 }
 
 function UpdatePassword(props) {
-    const [password, loading, error] = useFetchPassword(props.match.params.id);
+    const [password, loading] = useFetchPassword(props.match.params.id);
 
     function handleSubmit(data) {
         let docRef = db.collection("passwords").doc(props.match.params.id)

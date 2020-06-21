@@ -40,11 +40,11 @@ function useFetchPassword() {
 
     }, [list.length]);
 
-    return [list, loading, error, setList]
+    return [list, loading, setList, error]
 }
 
 function PasswordList(props) {
-    const [list, loading, error, setList] = useFetchPassword();
+    const [list, loading, setList] = useFetchPassword();
 
     if(loading) {
         return <LoadingSpinner />

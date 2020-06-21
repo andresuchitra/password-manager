@@ -16,7 +16,7 @@ const FormPassword = function FormPassword (props) {
             setUsername(props.password.username)
             setPassword(props.password.password)
         }
-    }, [initPwd.id]);
+    }, [initPwd.id, props.password.url, props.password.username, props.password.password]);
 
     function handleSubmit(e) {
         e.preventDefault();
