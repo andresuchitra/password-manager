@@ -9,16 +9,18 @@ const FormPassword = function FormPassword (props) {
     let initPwd = props.password ? props.password : {};
 
     useEffect(() => {
-        if(initPwd) {
+        if(initPwd.id) {
             setURL(initPwd.url)
             setUsername(initPwd.username)
             setPassword(initPwd.password)
-        }    
-    }, [initPwd])
+        }
+    }, [initPwd.id, initPwd.password, initPwd.url, initPwd.username]);
     
     function handleSubmit(e) {
         e.preventDefault();
         let newPwd = {}
+        
+        debugger
         if(url) {
             newPwd.url = url
         }
